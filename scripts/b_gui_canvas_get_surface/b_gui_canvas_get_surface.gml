@@ -1,0 +1,6 @@
+/// @func b_gui_canvas_get_surface(canvas)
+/// @desc Gets the surface of the canvas.
+/// @param {real} canvas The id of the canvas.
+/// @return {real} The surface of the canvas.
+gml_pragma("forceinline");
+return argument0[? "surface"];

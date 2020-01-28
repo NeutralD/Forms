@@ -1,0 +1,15 @@
+{
+    "name": "blueburn/forms",
+    "description": "GUI library for creating form applications in GameMaker Studio 2",
+    "license": "MIT",
+    "homepage": "https://github.com/blueburn-cz/Forms",
+    "yyp": "Forms.yyp",
+    "require": {
+        "kraifpatrik/ce-color-utils": "*",
+        "kraifpatrik/ce-list-utils": "*",
+        "kraifpatrik/ce-input": "*"
+    },
+    "ignore": {
+        "Test": "group"
+    }
+}

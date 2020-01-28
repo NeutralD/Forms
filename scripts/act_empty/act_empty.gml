@@ -1,0 +1,1 @@
+/// @func act_empty()
