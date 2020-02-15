@@ -9,7 +9,7 @@ if (argument_count == 1)
 }
 else
 {
-	 b_gui_widget_set_type(_widget, B_EGuiShape.Blank);
+	b_gui_widget_set_type(_widget, B_EGuiShape.Blank);
 }
 b_gui_widget_set_depth(_widget, noone);
 b_gui_widget_set_delegate(_widget, noone);
