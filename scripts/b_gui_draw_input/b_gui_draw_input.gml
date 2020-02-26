@@ -18,7 +18,7 @@ var _yStart = _y;
 var _width = argument[2];
 var _active = (bGuiInputActive == _id);
 var _value = _active ? bGuiInputString : string(argument[3]);
-var _type = is_real(argument[3]);
+var _isReal = is_real(argument[3]);
 var _stringLength = string_length(_value);
 var _mouseOver = b_gui_mouse_over(_x, _y, _width, bGuiInputSpriteHeight);
 var _maxCharCount = floor((_width - _padding * 2 ) / bGuiFontWidth);
@@ -49,9 +49,13 @@ if (_mouseOver)
 if (_active)
 {
 	if (bGuiInputIndex[1] - bGuiInputDrawIndexStart > _maxCharCount)
+	{
 		bGuiInputDrawIndexStart += bGuiInputIndex[1] - bGuiInputDrawIndexStart - _maxCharCount;
+	}
 	else if (bGuiInputDrawIndexStart > bGuiInputIndex[1])
+	{
 		bGuiInputDrawIndexStart -= bGuiInputDrawIndexStart - bGuiInputIndex[1];
+	}
 
 	var _drawValue = string_copy(_value, bGuiInputDrawIndexStart, _maxCharCount);
 
@@ -89,15 +93,8 @@ if (_active)
 }
 else
 {
-	var _drawValue = _value;
-	if (argument_count > 5 && _value == "")
-		_drawValue = argument[5];
-
-	var _color;
-	if (_disabled)
-		_color = B_EGuiColor.Disabled;
-	else
-		_color = B_EGuiColor.Text;
+	var _drawValue = (argument_count > 5 && _value == "") ? argument[5] : _value;
+	var _color = _disabled ? B_EGuiColor.Disabled : B_EGuiColor.Text;
 
 	b_gui_draw_text_part(_textX, _textY, _drawValue, _maxCharCount * bGuiFontWidth, _color);
 }
@@ -131,9 +128,14 @@ if (mouse_check_button_pressed(mb_left)
 		// Return value when clicked outside of the input
 		bGuiInputActive = noone;
 		if (b_gui_widget_exists(_delegate))
+		{
 			b_gui_request_redraw(_delegate);
-		if (_type)
-			return real(_value);
+		}
+		if (_isReal)
+		{
+			var _real = ce_parse_real(_value);
+			return (is_nan(_real) ? argument[3] : _real);
+		}
 		return _value;
 	}
 }
@@ -145,7 +147,9 @@ if (_active)
 	{
 		var _index = clamp(round((bGuiMouseX - _xStart - _padding) / bGuiFontWidth) + bGuiInputDrawIndexStart, 1, _stringLength + 1);
 		if (mouse_check_button_pressed(mb_left))
+		{
 			bGuiInputIndex[0] = _index;
+		}
 		bGuiInputIndex[1] = _index;
 	}
 	else if (mouse_check_button_pressed(mb_right) && _mouseOver)
@@ -176,7 +180,9 @@ if (_active)
 		//	{
 		//		_char = string_char_at(_value, i);
 		//		if (_char == " ")
+		//		{
 		//			break;
+		//		}
 		//	}
 		//	bGuiInputIndex[1] = i;
 		//}
@@ -190,13 +196,10 @@ if (_active)
 		{
 			b_gui_request_redraw(_delegate);
 		}
-		if (_type)
+		if (_isReal)
 		{
-			if (string_digits(_value) == "")
-			{
-				return argument[3];
-			}
-			return real(_value);
+			var _real = ce_parse_real(_value);
+			return (is_nan(_real) ? argument[3] : _real);
 		}
 		return _value;
 	}

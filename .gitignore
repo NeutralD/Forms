@@ -101,6 +101,13 @@ scripts/ce_input_set_scheme
 scripts/ce_input_to_string
 scripts/ce_input_update
 scripts/ce_input_using_gamepad
+views/0c79f054-d18b-9884-23f2-fcd4ead33348.yy
+views/27288ace-4ea8-ae1f-a5bc-b255010ff9e2.yy
+scripts/ce_parse_real
+scripts/ce_real_compare
+scripts/ce_real_is_even
+scripts/ce_real_is_odd
+scripts/ce_real_to_string
 views/02864067-797f-11da-7640-ad5668dbf3cc.yy
 views/bf0bec49-5596-583a-f9a4-75b4a8706fd7.yy
 scripts/ce_macro_config
@@ -124,4 +131,7 @@ scripts/ce_ds_map_find_key
 scripts/ce_ds_map_get
 scripts/ce_ds_map_get_keys
 scripts/ce_ds_map_get_values
+views/d13fe2ba-9ec4-1d77-e781-d2ad01961b7b.yy
+views/70196155-1dc5-34c2-f23d-fef92877fca5.yy
+scripts/ce_compare_config
 ### CATALYST ###
