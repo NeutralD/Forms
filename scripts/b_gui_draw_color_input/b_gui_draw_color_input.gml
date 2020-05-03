@@ -54,7 +54,7 @@ else
 	var _colorPickerContainer = b_gui_window_get_container(_colorPicker);
 	var _pickerColor = _colorPickerContainer[? "color"];
 	var _pickerAlpha = _colorPickerContainer[? "alpha"];
-	var _pickerArgb = ce_color_alpha_to_rgb(_pickerColor, _pickerAlpha);
+	var _pickerArgb = ce_color_alpha_to_argb(_pickerColor, _pickerAlpha);
 
 	if (_argb != _pickerArgb)
 	{

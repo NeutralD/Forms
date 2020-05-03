@@ -5,10 +5,10 @@
     "homepage": "https://github.com/blueburn-cz/Forms",
     "yyp": "Forms.yyp",
     "require": {
-        "kraifpatrik/ce-color-utils": "*",
-        "kraifpatrik/ce-list-utils": "*",
-        "kraifpatrik/ce-input": "*",
-        "kraifpatrik/ce-real-utils": "*"
+        "slagtand-org/ce-color-utils": "*",
+        "slagtand-org/ce-list-utils": "*",
+        "slagtand-org/ce-input": "*",
+        "slagtand-org/ce-real-utils": "*"
     },
     "ignore": {
         "Test": "group"
